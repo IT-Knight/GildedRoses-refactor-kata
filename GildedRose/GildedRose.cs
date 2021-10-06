@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GildedRoseKata
 {
@@ -12,7 +14,13 @@ namespace GildedRoseKata
 
         public void UpdateQuality()
         {
+            this.Items = Items.Select(item => FactoryСontext.Update(item)).ToList();
             
+
+            //    foreach (var item in Items)
+            //{
+            //    FactoryСontext.Update(item);
+            //}
 
         }
     }

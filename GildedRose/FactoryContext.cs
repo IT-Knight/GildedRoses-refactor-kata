@@ -6,24 +6,19 @@ using GildedRoseKata.Utils;
 
 namespace GildedRoseKata
 {
-    public class Сontext
+    public static class FactoryСontext
     {
-        private readonly Item _item;
-        private IStrategy strategy;
+        private static Item _item;
+        private static IStrategy strategy;
 
-        public Сontext(Item item)
+        public static Item Update(Item item)
         {
             _item = item;
-        }
-       
 
-        public Item Update()
-        {
+            //bool isUpdateNeeded = _item.ValidateIsUpdateNeeded(); // not perfect
 
-            bool isUpdateNeeded = _item.ValidateIsUpdateNeeded();
-
-            if (!isUpdateNeeded)
-                return _item;
+            //if (!isUpdateNeeded)
+            //    return _item;
 
             if (_item.SellIn >= 0) _item.SellIn--;
 
@@ -34,7 +29,7 @@ namespace GildedRoseKata
             return _item;
         }
 
-        private IStrategy GetStrategy(string itemName)
+        private static IStrategy GetStrategy(string itemName)
         {
             switch (itemName)
             {
@@ -49,6 +44,6 @@ namespace GildedRoseKata
                 default:
                     return new StandartStrategy();
             }
+        }
     }
-
 }

@@ -15,7 +15,8 @@ namespace GildedRoseKata.Strategies
                 item.Quality += 2;
             else if (item.Quality <= 5 && item.Quality < 50)
                 item.Quality += 3;
-            else if (item.SellIn == -1)
+            
+            if (item.SellIn == -1)
                 item.Quality = 0;
 
             if (item.Quality > 50)

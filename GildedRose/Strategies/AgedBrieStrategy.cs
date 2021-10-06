@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GildedRoseKata.Utils;
 
 namespace GildedRoseKata.Strategies
 {
@@ -8,7 +9,18 @@ namespace GildedRoseKata.Strategies
     {
         public void Update(Item item)
         {
-            item.Quality++;
+
+            if (item.SellIn >= 0)
+                item.Quality++;
+
+            if (item.SellIn == -1 && item.Quality < 50)
+            {
+                item.Quality += 2;
+                item.Quality.LimitQualityRange();
+            }
+
+            
+            
         }
     }
 }
