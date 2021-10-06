@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GildedRose.Utils
+namespace GildedRoseKata.Utils
 {
     public static class LimitVariableRange
     {
@@ -21,13 +21,9 @@ namespace GildedRose.Utils
             return 0;
         }
 
-        public static int LimitSellInRange(this int sellIn)
+        public static int LimitSellInRange(this int sellIn)  //No need, controlled at start.
         {
-            if (sellIn >= 0)
-            {
-                return sellIn;
-            }
-            return 0;
+            return (sellIn >= -1) ? sellIn : -1;
         }
     }
 }
