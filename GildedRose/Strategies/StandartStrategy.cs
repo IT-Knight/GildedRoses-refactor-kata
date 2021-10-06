@@ -1,12 +1,18 @@
 ﻿using GildedRoseKata.Strategies;
+using GildedRoseKata.Utils;
 
 namespace GildedRoseKata
 {
-    internal class StandartStrategy : IStrategy
+    public class StandartStrategy : IStrategy
     {
         public void Update(Item item)
         {
-            item.Quality--;
+
+            if (item.SellIn >= 0)
+                item.Quality--;
+
+            else if (item.Quality > 0)
+                item.Quality -= 2;
             
         }
     }

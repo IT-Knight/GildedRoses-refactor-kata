@@ -4,11 +4,12 @@ using System.Text;
 
 namespace GildedRoseKata.Strategies
 {
-    class AgedBrieStrategy : IStrategy
+    class SulfurasStrategy : IStrategy
     {
         public void Update(Item item)
         {
-            item.Quality++;
+            if (item.SellIn == -1)
+                item.SellIn = 0;
         }
     }
 }

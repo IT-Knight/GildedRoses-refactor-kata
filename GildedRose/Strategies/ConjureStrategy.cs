@@ -2,11 +2,15 @@
 
 namespace GildedRoseKata
 {
-    internal class ConjureStrategy : IStrategy
+    public class ConjureStrategy : IStrategy
     {
+        private readonly StandartStrategy standartStrategy = new StandartStrategy();
+
         public void Update(Item item)
         {
-            throw new System.NotImplementedException();
+                standartStrategy.Update(item);
+                standartStrategy.Update(item);
         }
+        
     }
 }
